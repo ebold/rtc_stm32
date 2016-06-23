@@ -231,18 +231,14 @@ void sendDataLEDExt(uint8_t data)
  */
 void ISR_timer(void)
 {
-	cnt[TIMER_1MS] ^= 1;
-	if (cnt[TIMER_1MS])
-	{
-		// 1/10 second is over
-		cnt[TIMER_100MS]--;
-		if (!(cnt[TIMER_100MS]))
-		{
-			cnt[TIMER_100MS] = CNT_100MS;
-			if (!(isTimeSetInProgress()))
-				event |= EVNT_TIME_ADVANCE;
-		}
-	}
+
+    cnt[TIMER_100MS]--;
+    if (!(cnt[TIMER_100MS]))
+    {
+        cnt[TIMER_100MS] = CNT_100MS;
+        if (!(isTimeSetInProgress()))
+            event |= EVNT_TIME_ADVANCE; // 1/10 second is over
+    }
 
 	if (cnt[TIMER_3MS])
 	{
