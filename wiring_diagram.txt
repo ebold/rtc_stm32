@@ -1,0 +1,30 @@
+Wiring diagram between the Nucleo board and custom LED module
+
+1. Components
+- Nucleo-F103RB board
+- LED module
+- 10 pin flat cable with micro-match plug (TE connectivity)
+
+2. Setup
+
+Once the Nucleo board is programmed it is powered by an USB charger.
+Therefore the jumper JP1 must be set to ON to allow target STM32 to be powered [1].
+
+3. Wiring/cabling (Signal_name: LED_module:connector:pin_number <-> STM_board:connector:pin_name)
+
+Clock, data and control signals
+SCK: LED:X:3    <-> Nucleo:CN5:SCK/D13
+SDO: LED:X:6    <-> Nucleo:CN5:PWM/MOSI/D13
+LDO: LED:X:4    <-> Nucleo:CN5:D8
+OE:  LED:X:5    <-> Nucleo:CN9:D7
+
+Power
++4V: LED:X:8    <-> Nucleo:CN6:3V3
+GND: LED:X:9,10 <-> Nucleo:CN6:GND
+
+Not used pins: 1,2,7
+
+4. References
+
+[1] UM1724 User manual - STM32 Nucleo-64 boards (MB1136), 6.3.1 Power supply input
+from the USB connector, page 20
