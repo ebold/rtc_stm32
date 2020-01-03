@@ -14,7 +14,7 @@ Therefore the jumper JP1 must be set to ON to allow target STM32 to be powered [
 
 Clock, data and control signals
 SCK: LED:X:3    <-> Nucleo:CN5:SCK/D13
-SDO: LED:X:6    <-> Nucleo:CN5:PWM/MOSI/D13
+SDO: LED:X:6    <-> Nucleo:CN5:PWM/MOSI/D11
 LDO: LED:X:4    <-> Nucleo:CN5:D8
 OE:  LED:X:5    <-> Nucleo:CN9:D7
 
